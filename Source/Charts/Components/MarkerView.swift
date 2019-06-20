@@ -19,11 +19,11 @@ import CoreGraphics
 @objc(ChartMarkerView)
 open class MarkerView: NSUIView, IMarker
 {
-    open var offset: CGPoint = CGPoint()
+    @objc open var offset: CGPoint = CGPoint()
     
     @objc open weak var chartView: ChartViewBase?
     
-    open func offsetForDrawing(atPoint point: CGPoint) -> CGPoint
+    @objc open func offsetForDrawing(atPoint point: CGPoint) -> CGPoint
     {
         guard let chart = chartView else { return self.offset }
         
@@ -53,12 +53,12 @@ open class MarkerView: NSUIView, IMarker
         return offset
     }
     
-    open func refreshContent(entry: ChartDataEntry, highlight: Highlight)
+    @objc open func refreshContent(entry: ChartDataEntry, highlight: Highlight)
     {
         // Do nothing here...
     }
     
-    open func draw(context: CGContext, point: CGPoint)
+    @objc open func draw(context: CGContext, point: CGPoint)
     {
         let offset = self.offsetForDrawing(atPoint: point)
         
